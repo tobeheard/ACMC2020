@@ -4,7 +4,7 @@ let vScale = 16;
 let particle;
 
 function setup() {
-	createCanvas(windowWidth, windowHeight);
+	createCanvas(640, 480);
 	pixelDensity(1);
 	video = createCapture(VIDEO);
 	video.size(width / vScale, height / vScale);
