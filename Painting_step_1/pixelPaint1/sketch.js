@@ -13,6 +13,7 @@ function setup() {
 }
 
 function draw() {
+	// background(51);
 	video.loadPixels();
 	particle.update();
 	particle.show();
