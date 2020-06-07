@@ -8,10 +8,9 @@ function setup() {
 	pixelDensity(1);
 	video = createCapture(VIDEO);
 	video.size(width / vScale, height / vScale);
-	for (let i = 0; i < 200; i++) { //using for loop fill the array
+	for (let i = 0; i < 50; i++) { //using for loop fill the array
 		particles[i] = new Particle(random(width), random(height));
 	}
-
 	background(51);
 }
 

@@ -9,17 +9,17 @@ function Particle(x, y) {
 
 		this.x = constrain(this.x, 0, width); //so the particle
 		this.y = constrain(this.y, 0, height); //does not leave the window
-	}
+	};
 
 	this.show = function () {
 		noStroke();
 		// fill(255, 150); //this is the single pixel
 		// ellipse(this.x, this.y, 24, 24); // version
-		var px = floor(this.x / vScale); //this now gets 
-		var py = floor(this.y / vScale); //the x & y color values
-		var col = video.get(px, py); //floor gets rid of decimal
+		let px = floor(this.x / vScale); //this now gets 
+		let py = floor(this.y / vScale); //the x & y color values
+		let col = video.get(px, py); //floor gets rid of decimal
 		// console.log(col);
-		fill(col[0], col[1], col[2], 150);
+		fill(col[0], col[1], col[2]);
 		ellipse(this.x, this.y, this.r, this.r); //now the radius is random size
-	}
+	};
 }
