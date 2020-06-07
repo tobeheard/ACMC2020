@@ -1,20 +1,25 @@
 // painting with particle pixels
 let video;
 let vScale = 16;
-let particle;
+let particles = []; //empty array to hold particles
 
 function setup() {
 	createCanvas(640, 480);
 	pixelDensity(1);
 	video = createCapture(VIDEO);
 	video.size(width / vScale, height / vScale);
-	particle = new Particle(320, 240);
+	for (let i = 0; i < 200; i++) { //using for loop fill the array
+		particles[i] = new Particle(random(width), random(height));
+	}
+
 	background(51);
 }
 
 function draw() {
 	// background(51);
 	video.loadPixels();
-	particle.update();
-	particle.show();
+	for (let i = 0; i < particles.length; i++) {
+		particles[i].update();
+		particles[i].show();
+	}
 }
