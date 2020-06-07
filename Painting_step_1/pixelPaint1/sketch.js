@@ -9,6 +9,7 @@ function setup() {
 	video = createCapture(VIDEO);
 	video.size(width / vScale, height / vScale);
 	particle = new Particle(320, 240);
+	background(51);
 }
 
 function draw() {
