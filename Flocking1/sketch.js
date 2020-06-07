@@ -2,7 +2,7 @@ const flock = [];
 
 function setup() {
   createCanvas(640, 360);
-  for (let i = 0; i < 50; i++) { //create a bunch
+  for (let i = 0; i < 200; i++) { //create a bunch
     flock.push(new Boid()); //of boid class
   }
 }
