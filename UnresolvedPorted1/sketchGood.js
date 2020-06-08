@@ -1,7 +1,7 @@
 /// <reference path="../TSDef/p5.global-mode.d.ts" />
 
-// trying A Parrish new?? this hack did not work out
-// https://creative-coding.decontextualize.com/video/
+
+
 // Modified by me!
 
 // Hartmut Bohnacker, Benedikt Gross, Julia Laub, Claudius Lazzeroni
@@ -39,7 +39,7 @@ let blackAndWhite = false;
 // PFont font;
 
 let video, words, txt;
-let vScale = 16;
+let vScale = 60;
 
 function preload() {
   words = loadStrings("covid.txt");
@@ -48,12 +48,12 @@ function preload() {
 
 function setup() {
   pixelDensity(1);
-  frameRate(5);
+  frameRate(15);
   // fullscreen();
-  createCanvas(640, 480);
+  createCanvas(displayWidth, displayHeight);
   video = createCapture(VIDEO);
   video.size(width / vScale, height / vScale);
-  // video.hide();
+  video.hide();
 
   textFont("Times");
   textSize(10);
@@ -74,38 +74,36 @@ function draw() {
   video.loadPixels();
   // textAlign(LEFT);
   //textAlign(LEFT,CENTER); //// also nice!
+
   let x = 0,
     y = 10,
     counter = 0;
-  // while (y < height) {
-  //   // translate position (display) to position (video image)
-  //   let imgX = map(x, 0, width, 0, video.width);
-  //   let imgY = map(y, 0, height, 0, video.height);
-  for (let vY = 0; vY < video.height; vY += 5) {
-    for (let vX = 0; vX < video.width; vX += 5) {
-      let offset = ((vY * video.width) + vX) * 4;
-      let imgX = (vX / video.width) * width;
-      let imgY = (vY / video.height) * height;
 
-      // get current color
-      let c = color(video.get(imgX, imgY));
-      // let greyscale = round(red(c) * 0.222 + green(c) * 0.707 + blue(c) * 0.071);
-    }
+
+
+  while (y < height) {
+    // translate position (display) to position (video image)
+    let imgX = map(x, 0, width, 0, video.width);
+    let imgY = map(y, 0, height, 0, video.height);
+    // get current color
+    let c = color(video.get(imgX, imgY));
+    let greyscale = round(red(c) * 0.222 + green(c) * 0.707 + blue(c) * 0.071);
+
     push();
-    // translate(x, y);
+    translate(x, y);
 
-    // if (fontSizeStatic) {
-    //   textFont(font, fontSizeMax);
-    //   if (blackAndWhite) fill(greyscale);
-    //   else fill(c);
-    // } else {
-    //   // greyscale to fontsize
-    //   let fontSize = map(greyscale, 0, 255, fontSizeMax, fontSizeMin);
-    //   fontSize = max(fontSize, 1);
-    //   textSize(fontSize);
-    //   if (blackAndWhite) fill(0);
-    //   else fill(c);
-    // }
+    if (fontSizeStatic) {
+      textFont(font, fontSizeMax);
+      if (blackAndWhite) fill(greyscale);
+      else fill(c);
+    } else {
+      // greyscale to fontsize
+      let fontSize = map(greyscale, 0, 255, fontSizeMax, fontSizeMin);
+      fontSize = max(fontSize, 1);
+      textSize(fontSize);
+      if (blackAndWhite) fill(0);
+      else fill(c);
+    }
 
     let letter = txt.charAt(counter);
     text(letter, 0, 0);
