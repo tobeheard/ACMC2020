@@ -4,8 +4,8 @@ class Boid { //this.means it keeps track of it's individual position, velocity, 
     this.velocity = p5.Vector.random2D();
     this.velocity.setMag(random(2, 4));
     this.acceleration = createVector();
-    this.maxForce = 0.1;
-    this.maxSpeed = 2;
+    this.maxForce = 1;
+    this.maxSpeed = 4;
   }
   edges() {
     if (this.position.x > width) {
@@ -20,7 +20,7 @@ class Boid { //this.means it keeps track of it's individual position, velocity, 
     }
   }
   align(boids) {
-    let neighbourPerception = 100;
+    let neighbourPerception = 50;
     let steering = createVector();
     let total = 0;
     for (let other of boids) {
@@ -44,7 +44,7 @@ class Boid { //this.means it keeps track of it's individual position, velocity, 
   }
 
   separation(boids) {
-    let perceptionRadius = 50;
+    let perceptionRadius = 100;
     let steering = createVector();
     let total = 0;
     for (let other of boids) {

@@ -1,3 +1,4 @@
+/// <reference path="../TSDef/p5.global-mode.d.ts" />
 const flock = [];
 
 function setup() {
