@@ -5,7 +5,7 @@ class Boid { //this.means it keeps track of it's individual position, velocity, 
     this.velocity.setMag(random(2, 4));
     this.acceleration = createVector();
     this.maxForce = 1;
-    this.maxSpeed = 4;
+    this.maxSpeed = 8;
   }
   edges() {
     if (this.position.x > width) {
@@ -42,7 +42,6 @@ class Boid { //this.means it keeps track of it's individual position, velocity, 
     }
     return steering;
   }
-
   separation(boids) {
     let perceptionRadius = 100;
     let steering = createVector();
@@ -69,8 +68,6 @@ class Boid { //this.means it keeps track of it's individual position, velocity, 
     }
     return steering;
   }
-
-
   cohesion(boids) {
     let neighbourPerception = 100;
     let steering = createVector();
@@ -95,7 +92,6 @@ class Boid { //this.means it keeps track of it's individual position, velocity, 
     }
     return steering;
   }
-
   flock(boids) {
     let alignment = this.align(boids);
     let cohesion = this.cohesion(boids);
@@ -112,8 +108,21 @@ class Boid { //this.means it keeps track of it's individual position, velocity, 
     this.acceleration.mult(0);
   }
   show() {
-    // strokeWeight(8);
-    fill(255);
-    ellipse(this.position.x, this.position.y, 8, 8);
+    for (var y = 0; y < height; y += 10) {
+      for (var x = 0; x < width; x += 10) {
+        var offset = ((y * width) + x) * 4;
+        fill(vid.pixels[offset],
+          vid.pixels[offset + 1],
+          vid.pixels[offset + 2]);
+        // rect(x, y, 10, 10);
+      }
+    }
+
+    let px = floor(this.position.x / vScale); //this now gets 
+    let py = floor(this.position.y / vScale); //the x & y color values
+    let col = vid.get(px, py); //floor gets rid of decimal
+    // console.log(col);
+    fill(col[0], col[1], col[2]);
+    ellipse(this.position.x, this.position.y, random(4, 12), random(4, 12)); //now the radius is random size
   }
 }

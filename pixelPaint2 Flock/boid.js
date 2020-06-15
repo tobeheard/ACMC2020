@@ -113,7 +113,16 @@ class Boid { //this.means it keeps track of it's individual position, velocity, 
   }
   show() {
     // strokeWeight(8);
-    fill(255);
-    ellipse(this.position.x, this.position.y, 8, 8);
+    //  fill(255);
+
+    noStroke();
+    // fill(255, 150); //this is the single pixel
+    // ellipse(this.x, this.y, 24, 24); // version
+    let px = floor(this.x / vScale); //this now gets 
+    let py = floor(this.y / vScale); //the x & y color values
+    let col = video.get(px, py); //floor gets rid of decimal
+    // console.log(col);
+    fill(col[0], col[1], col[2]);
+    ellipse(this.position.x, this.position.y, 8, 8); //now the radius is random size
   }
 }

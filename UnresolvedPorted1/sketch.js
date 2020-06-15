@@ -40,7 +40,7 @@ let blackAndWhite = false;
 // PFont font;
 
 let video, words, txt;
-let vScale = 16;
+// let vScale = 2;
 
 
 function preload() {
@@ -49,13 +49,12 @@ function preload() {
 
 
 function setup() {
-  // pixelDensity(1);
-  frameRate(5);
-  // fullscreen();
-  createCanvas(640, 480);
+  createCanvas(windowWidth, windowHeight);
+  // frameRate(5);
   video = createCapture(VIDEO);
   video.size(width, height);
-  video.hide();
+  // pixelDensity(1);
+  // video.hide();
 
   textFont("Times");
   textSize(5);

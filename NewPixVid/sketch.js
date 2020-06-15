@@ -3,14 +3,15 @@ let vScale = 16;
 
 function setup() {
   createCanvas(640, 480);
+  pixelDensity(1);
   vid = createCapture(VIDEO);
-  // video.size(width / vScale, height / vScale);
-  vid.hide();
+  vid.size(width / vScale, height / vScale);
+  // vid.hide();
   noStroke();
 }
 
 function draw() {
-  background(0);
+  // background(0);
   vid.loadPixels();
   for (var y = 0; y < height; y += 10) {
     for (var x = 0; x < width; x += 10) {
