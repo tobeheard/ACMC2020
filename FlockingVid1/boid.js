@@ -108,15 +108,8 @@ class Boid { //this.means it keeps track of it's individual position, velocity, 
     this.acceleration.mult(0);
   }
   show() {
-    for (var y = 0; y < height; y += 10) {
-      for (var x = 0; x < width; x += 10) {
-        var offset = ((y * width) + x) * 4;
-        fill(vid.pixels[offset],
-          vid.pixels[offset + 1],
-          vid.pixels[offset + 2]);
-        // rect(x, y, 10, 10);
-      }
-    }
+
+
 
     let px = floor(this.position.x / vScale); //this now gets 
     let py = floor(this.position.y / vScale); //the x & y color values
