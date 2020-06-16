@@ -5,6 +5,7 @@ let particles = []; //empty array to hold particles
 
 function setup() {
 	createCanvas(640, 480);
+	frameRate(15);
 	pixelDensity(1);
 	video = createCapture(VIDEO);
 	video.size(width / vScale, height / vScale);
