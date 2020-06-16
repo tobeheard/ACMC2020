@@ -4,15 +4,16 @@ let vScale = 16;
 const flock = []; //empty array to hold particles
 
 function setup() {
-	createCanvas(640, 480);
+	createCanvas(windowWidth, windowHeight);
 	pixelDensity(1);
 	video = createCapture(VIDEO);
 	video.size(width / vScale, height / vScale);
-	createCanvas(640, 360);
+
 	for (let i = 0; i < 200; i++) { //create a bunch
 		flock.push(new Boid()); //of boid class
 	}
 	background(51);
+
 }
 
 function draw() {
