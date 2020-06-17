@@ -4,13 +4,13 @@ let vScale = 16;
 let particles = []; //empty array to hold particles
 
 function setup() {
-	createCanvas(640, 480);
+	createCanvas(windowWidth, windowHeight);
 	frameRate(15);
 	pixelDensity(1);
 	video = createCapture(VIDEO);
 	video.size(width / vScale, height / vScale);
 	for (let i = 0; i < 50; i++) { //using for loop fill the array
-		particles[i] = new Particle(random(width), random(height));
+		particles[i] = new Particle(random(width), noise(height));
 	}
 	background(51);
 }

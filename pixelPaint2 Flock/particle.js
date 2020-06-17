@@ -1,7 +1,7 @@
 function Particle(x, y) {
 	this.x = x;
 	this.y = y;
-	this.r = random(4, 32);
+	this.r = random(4, 12);
 
 	this.update = function () {
 		this.x += random(-10, 10);
@@ -18,8 +18,8 @@ function Particle(x, y) {
 		let px = floor(this.x / vScale); //this now gets 
 		let py = floor(this.y / vScale); //the x & y color values
 		let col = video.get(px, py); //floor gets rid of decimal
-		// console.log(col);
-		fill(col[0], col[1], col[2]);
+		console.log(col);
+		fill(col[0], col[1], col[2], random(0, 255));
 		ellipse(this.x, this.y, this.r, this.r); //now the radius is random size
 	};
 }
