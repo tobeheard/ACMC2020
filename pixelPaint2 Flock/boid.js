@@ -6,8 +6,7 @@ class Boid { //this.means it keeps track of it's individual position, velocity, 
     this.acceleration = createVector();
     this.maxForce = 1;
     this.maxSpeed = 4;
-    this.x = x;
-    this.y = y;
+
 
   }
   edges() {
