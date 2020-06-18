@@ -8,13 +8,13 @@ phaser = new Tone.Phaser({
   "frequency": 15,
   "octaves": 5,
   "baseFrequency": 100
-});
+}).toMaster();
 
-feed = new Tone.FeedbackDelay(0.4, 0.85);
+feed = new Tone.FeedbackDelay(0.4, 0.85).toMaster();
 
-ping = new Tone.PingPongDelay("4n", 0.2);
+ping = new Tone.PingPongDelay("4n", 0.2).toMaster();
 
-filter = new Tone.Filter();
+filter = new Tone.Filter().toMaster();
 filter.type = 'lowpass';
 // Effects end
 
