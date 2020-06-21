@@ -97,22 +97,27 @@ pattern4 = new Tone.Pattern(function (time, note) {
 
 
 Tone.Transport.start();
-pattern0.start(56).stop(156);
-pattern1.start(8).stop(80); //synth 1
-pattern2.start(24).stop(124);
-pattern3.start(32);
-// pattern3.stop(72);
-// pattern3.start(86);
-// pattern0.stop(156);
-// pattern1.stop(80);
-// pattern2.stop(124);
-// pattern3.start(132);
-// // pattern4.start(0).iterations = 6;
-// pattern0.start(256);
-// pattern1.start(288);
-// pattern2.start(324);
-// pattern3.start(432);
-// pattern3.stop(572);
-// // pattern4.start(686);
-// pattern0.stop(715);
+pattern4.start(0)
+pattern1.start(8); //synth 1
+pattern2.start(24);
+pattern3.start(32).iterations = 6; //pluckdrops
+pattern0.start(56); //subline
+pattern3.stop(72);
+pattern1.stop(80);
+pattern3.start(86);
+pattern2.stop(124);
+pattern1.start(128);
+pattern3.start(132);
+pattern0.start(156);
+pattern2.start(184);
+pattern2.stop(224);
+pattern3.stop(239);
+pattern1.stop(248);
+pattern0.start(256);
+pattern1.start(288);
+pattern2.start(324);
+pattern3.start(432);
+pattern3.stop(572);
+pattern4.start(686);
+pattern0.stop(715);
 Tone.Transport.stop(720); //=12minutes

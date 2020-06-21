@@ -2,7 +2,7 @@ const express = require('express');
 const Datastore = require('nedb');
 
 const app = express();
-app.listen(3000, () => console.log('hello, welcome to the installation'));
+app.listen(3030, () => console.log('hello, welcome to the installation'));
 app.use(express.static('public'));
 app.use(express.json({
   limit: '1mb'
